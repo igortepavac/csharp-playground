@@ -15,7 +15,7 @@ namespace EventXyz.Controllers {
 
         public static Form GetForm(this MainNavigationController.NavigationItem item) {
             return item switch {
-                MainNavigationController.NavigationItem.Artists => new FormArtists((view) => { return DependencyGraphUtil.GetArtistDetailsPresenter(view); }),
+                MainNavigationController.NavigationItem.Artists => new FormEntityDetails((view) => { return DependencyGraphUtil.GetArtistDetailsPresenter(view); }),
                 _ => throw new Exception(String.Format("Unhandled navigation item - {0}", item)),
             };
         }

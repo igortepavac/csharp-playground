@@ -1,6 +1,6 @@
 ﻿
 namespace EventXyz.Forms {
-    partial class FormArtists {
+    partial class FormEntityDetails {
         /// <summary>
         /// Required designer variable.
         /// </summary>

@@ -12,18 +12,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace EventXyz.Forms {
-    public partial class FormArtists : Form, IEntityDetailsView {
+    public partial class FormEntityDetails : Form, IEntityDetailsView {
 
         public delegate EntityDetailsPresenter PresenterFactory(IEntityDetailsView view);
 
         private readonly EntityDetailsPresenter presenter;
 
-        public FormArtists(PresenterFactory presenterFactory) {
+        public FormEntityDetails(PresenterFactory presenterFactory) {
             this.presenter = presenterFactory.Invoke(this);
             InitializeComponent();
         }
 
-        public FormArtists() {
+        public FormEntityDetails() {
             InitializeComponent();
         }
 
