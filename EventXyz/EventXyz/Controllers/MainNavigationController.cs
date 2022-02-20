@@ -1,4 +1,6 @@
 ﻿using EventXyz.Forms;
+using EventXyz.Mvp;
+using EventXyz.Utils;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -13,7 +15,7 @@ namespace EventXyz.Controllers {
 
         public static Form GetForm(this MainNavigationController.NavigationItem item) {
             return item switch {
-                MainNavigationController.NavigationItem.Artists => new FormArtists(),
+                MainNavigationController.NavigationItem.Artists => new FormArtists((view) => { return DependencyGraphUtil.GetArtistDetailsPresenter(view); }),
                 _ => throw new Exception(String.Format("Unhandled navigation item - {0}", item)),
             };
         }
