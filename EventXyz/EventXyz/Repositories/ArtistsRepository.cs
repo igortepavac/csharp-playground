@@ -8,6 +8,24 @@ using System.Threading.Tasks;
 namespace EventXyz.Repositories {
     public class ArtistsRepository : BaseEntityRepository<Artist> {
 
+        private static ArtistsRepository instance = null;
+        private static readonly object instanceLock = new object();
+
+        private ArtistsRepository() { }
+
+        public static ArtistsRepository Instance {
+            get {
+                if (instance == null) {
+                    lock (instanceLock) {
+                        if (instance == null) {
+                            instance = new ArtistsRepository();
+                        }
+                    }
+                }
+                return instance;
+            }
+        }
+
         private List<Artist> artists = new List<Artist>() {
             new Artist(1, "Gnork", "Pop"),
             new Artist(2, "Valentino", "Rock")

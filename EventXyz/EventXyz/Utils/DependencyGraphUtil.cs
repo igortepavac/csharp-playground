@@ -11,11 +11,11 @@ namespace EventXyz.Utils {
     public static class DependencyGraphUtil {
 
         public static IEntityDetailsPresenter GetArtistDetailsPresenter(IEntityDetailsView view) {
-            return new ArtistsDetailsPresenter(view, new ArtistsRepository(), new ArtistDetailsNavigationController());
+            return new ArtistsDetailsPresenter(view, ArtistsRepository.Instance, new ArtistDetailsNavigationController());
         }
 
         public static IEntityDetailsPresenter GetEventDetailsPresenter(IEntityDetailsView view) {
-            return new EventsDetailsPresenter(view, new EventsRepository(), new EventDetailsNavigationController());
+            return new EventsDetailsPresenter(view, EventsRepository.Instance, new EventDetailsNavigationController());
         }
     }
 }
