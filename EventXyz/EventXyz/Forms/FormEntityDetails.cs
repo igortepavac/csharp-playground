@@ -38,8 +38,8 @@ namespace EventXyz.Forms {
             btnDeleteItem.Click += (_, _) => { OnDeleteItem(); };
             btnEditItem.Click += (_, _) => { presenter.OnEditItem(GetSelectedItemId()); };
 
-            btnDeleteItem.EnabledChanged += (_, _) => { ControlUtils.UpdateStyle(btnDeleteItem, btnDeleteItem.Enabled); };
-            btnEditItem.EnabledChanged += (_, _) => { ControlUtils.UpdateStyle(btnEditItem, btnEditItem.Enabled); };
+            btnDeleteItem.EnabledChanged += (_, _) => { UpdateActionButtonStyle(btnDeleteItem, btnDeleteItem.Enabled); };
+            btnEditItem.EnabledChanged += (_, _) => { UpdateActionButtonStyle(btnEditItem, btnEditItem.Enabled); };
             btnDeleteItem.Enabled = false;
             btnEditItem.Enabled = false;
         }
@@ -83,6 +83,10 @@ namespace EventXyz.Forms {
                 });
                 lvItems.Items.Add(item);
             });
+        }
+
+        private static void UpdateActionButtonStyle(Control control, bool enabled) {
+            control.BackColor = enabled ? Color.FromArgb(26, 29, 31) : Color.FromArgb(47, 53, 56);
         }
     }
 }
