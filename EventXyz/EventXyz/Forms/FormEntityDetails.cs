@@ -14,9 +14,9 @@ using System.Windows.Forms;
 namespace EventXyz.Forms {
     public partial class FormEntityDetails : Form, IEntityDetailsView {
 
-        public delegate EntityDetailsPresenter PresenterFactory(IEntityDetailsView view);
+        public delegate IEntityDetailsPresenter PresenterFactory(IEntityDetailsView view);
 
-        private readonly EntityDetailsPresenter presenter;
+        private readonly IEntityDetailsPresenter presenter;
 
         public FormEntityDetails(PresenterFactory presenterFactory) {
             this.presenter = presenterFactory.Invoke(this);

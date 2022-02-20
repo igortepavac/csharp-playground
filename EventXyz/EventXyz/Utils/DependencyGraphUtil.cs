@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace EventXyz.Utils {
     public static class DependencyGraphUtil {
 
-        public static EntityDetailsPresenter GetArtistDetailsPresenter(IEntityDetailsView view) {
+        public static IEntityDetailsPresenter GetArtistDetailsPresenter(IEntityDetailsView view) {
             return new ArtistsDetailsPresenter(view, new ArtistsRepository(), new ArtistDetailsNavigationController());
         }
     }

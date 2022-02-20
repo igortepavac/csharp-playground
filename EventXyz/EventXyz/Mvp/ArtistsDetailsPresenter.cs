@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace EventXyz.Mvp {
-    public class ArtistsDetailsPresenter : EntityDetailsPresenter {
+    public class ArtistsDetailsPresenter : IEntityDetailsPresenter {
 
         private readonly IEntityDetailsView view;
         private readonly ArtistsRepository repository;
@@ -20,7 +20,7 @@ namespace EventXyz.Mvp {
             this.navigationController = navigationController;
         }
 
-        public override void Initialize() {
+        public void Initialize() {
             InitializeHeaders();
             ShowItems();
         }
@@ -41,15 +41,15 @@ namespace EventXyz.Mvp {
             view.ShowRows(rows);
         }
 
-        public override void OnAddNewItem() {
+        public void OnAddNewItem() {
             navigationController.NavigateToArtistEditor();
         }
 
-        public override void OnDeleteItem(int itemId) {
+        public void OnDeleteItem(int itemId) {
             throw new NotImplementedException();
         }
 
-        public override void OnEditItem(int itemId) {
+        public void OnEditItem(int itemId) {
             navigationController.NavigateToArtistEditor(new Artist(1, "Alica", "Genre"));
         }
     }
