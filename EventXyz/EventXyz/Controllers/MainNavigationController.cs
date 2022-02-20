@@ -16,6 +16,7 @@ namespace EventXyz.Controllers {
         public static Form GetForm(this MainNavigationController.NavigationItem item) {
             return item switch {
                 MainNavigationController.NavigationItem.Artists => new FormEntityDetails((view) => { return DependencyGraphUtil.GetArtistDetailsPresenter(view); }),
+                MainNavigationController.NavigationItem.Events => new FormEntityDetails((view) => { return DependencyGraphUtil.GetEventDetailsPresenter(view); }),
                 _ => throw new Exception(String.Format("Unhandled navigation item - {0}", item)),
             };
         }
@@ -23,6 +24,7 @@ namespace EventXyz.Controllers {
         public static string GetTitle(this MainNavigationController.NavigationItem item) {
             return item switch {
                 MainNavigationController.NavigationItem.Artists => "Izvođači",
+                MainNavigationController.NavigationItem.Events => "Događaji",
                 _ => throw new Exception(String.Format("Unhandled navigation item - {0}", item)),
             };
         }
@@ -31,7 +33,8 @@ namespace EventXyz.Controllers {
     public class MainNavigationController {
 
         public enum NavigationItem {
-            Artists
+            Artists,
+            Events
         }
 
         private readonly Dictionary<NavigationItem, Control> navigationControls;
@@ -75,7 +78,7 @@ namespace EventXyz.Controllers {
                 if (controlPair.Key == selectedItem) {
                     control.BackColor = Color.FromArgb(45, 27, 49);
                 } else {
-                    control.BackColor = Color.FromArgb(225, 226, 226);
+                    control.BackColor = Color.FromArgb(26, 29, 31);
                 }
             }
         }

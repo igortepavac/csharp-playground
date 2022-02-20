@@ -19,7 +19,8 @@ namespace EventXyz {
             
             navigationController = new MainNavigationController(
                 new Dictionary<MainNavigationController.NavigationItem, Control> {
-                    { MainNavigationController.NavigationItem.Artists, btnArtists }
+                    { MainNavigationController.NavigationItem.Artists, btnArtists },
+                    { MainNavigationController.NavigationItem.Events, btnEvents }
                 },
                 panelFormContainer,
                 lblTitle

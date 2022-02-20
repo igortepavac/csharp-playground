@@ -27,7 +27,7 @@ namespace EventXyz {
             this.panelMenu = new System.Windows.Forms.Panel();
             this.lblCourseName = new System.Windows.Forms.Label();
             this.lblAuthorName = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnEvents = new System.Windows.Forms.Button();
             this.btnArtists = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelLogo = new System.Windows.Forms.Panel();
@@ -46,7 +46,7 @@ namespace EventXyz {
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(29)))), ((int)(((byte)(31)))));
             this.panelMenu.Controls.Add(this.lblCourseName);
             this.panelMenu.Controls.Add(this.lblAuthorName);
-            this.panelMenu.Controls.Add(this.button1);
+            this.panelMenu.Controls.Add(this.btnEvents);
             this.panelMenu.Controls.Add(this.btnArtists);
             this.panelMenu.Controls.Add(this.panel1);
             this.panelMenu.Controls.Add(this.panelLogo);
@@ -82,20 +82,20 @@ namespace EventXyz {
             this.lblAuthorName.Text = "Igor Tepavac";
             this.lblAuthorName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button1
+            // btnEvents
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(55)))), ((int)(((byte)(101)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.button1.Location = new System.Drawing.Point(0, 150);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(190, 40);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Događaji";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnEvents.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEvents.FlatAppearance.BorderSize = 0;
+            this.btnEvents.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(55)))), ((int)(((byte)(101)))));
+            this.btnEvents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEvents.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnEvents.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.btnEvents.Location = new System.Drawing.Point(0, 150);
+            this.btnEvents.Name = "btnEvents";
+            this.btnEvents.Size = new System.Drawing.Size(190, 40);
+            this.btnEvents.TabIndex = 4;
+            this.btnEvents.Text = "Događaji";
+            this.btnEvents.UseVisualStyleBackColor = true;
             // 
             // btnArtists
             // 
@@ -199,7 +199,7 @@ namespace EventXyz {
         private System.Windows.Forms.Panel panelTitle;
         private System.Windows.Forms.Panel panelFormContainer;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnEvents;
         private System.Windows.Forms.Button btnArtists;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblCourseName;

@@ -21,12 +21,12 @@ namespace EventXyz.Repositories {
             return artists.Find(artist => artist.Id == id);
         }
 
-        protected override void AddItemInternal(Artist artist) {
-            artists.Add(artist);
+        protected override void AddItemInternal(Artist item) {
+            artists.Add(item);
         }
 
-        protected override void UpdateItemInternal(Artist artist) {
-            artists = artists.Select(a => a.Id == artist.Id ? artist : a).ToList();
+        protected override void UpdateItemInternal(Artist item) {
+            artists = artists.Select(a => a.Id == item.Id ? item : a).ToList();
         }
 
         protected override void DeleteItemInternal(int id) {

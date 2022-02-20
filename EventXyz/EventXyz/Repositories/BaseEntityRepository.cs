@@ -33,7 +33,7 @@ namespace EventXyz.Repositories {
 
         private void PerformAndNotify(Action action) {
             action.Invoke();
-            DataChange.Invoke();
+            DataChange?.Invoke();
         }
     }
 }
