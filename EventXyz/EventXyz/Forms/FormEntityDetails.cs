@@ -34,12 +34,12 @@ namespace EventXyz.Forms {
         }
 
         private void InitializeButtons() {
-            btnAddNewItem.Click += (_, _) => { presenter.OnAddNewItem(); };
-            btnDeleteItem.Click += (_, _) => { OnDeleteItem(); };
-            btnEditItem.Click += (_, _) => { presenter.OnEditItem(GetSelectedItemId()); };
+            btnAddNewItem.Click += (_, _) => presenter.OnAddNewItem();
+            btnDeleteItem.Click += (_, _) => OnDeleteItem();
+            btnEditItem.Click += (_, _) => presenter.OnEditItem(GetSelectedItemId());
 
-            btnDeleteItem.EnabledChanged += (_, _) => { UpdateActionButtonStyle(btnDeleteItem, btnDeleteItem.Enabled); };
-            btnEditItem.EnabledChanged += (_, _) => { UpdateActionButtonStyle(btnEditItem, btnEditItem.Enabled); };
+            btnDeleteItem.EnabledChanged += (_, _) => UpdateActionButtonStyle(btnDeleteItem, btnDeleteItem.Enabled);
+            btnEditItem.EnabledChanged += (_, _) => UpdateActionButtonStyle(btnEditItem, btnEditItem.Enabled);
             btnDeleteItem.Enabled = false;
             btnEditItem.Enabled = false;
         }
