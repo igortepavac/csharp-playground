@@ -49,7 +49,7 @@ namespace EventXyz.Mvp {
         }
 
         public void OnEditItem(int itemId) {
-            navigationController.NavigateToEventEditor(new MusicEvent(1, "Opis 3"));
+            navigationController.NavigateToEventEditor(repository.GetItem(itemId));
         }
     }
 }

@@ -46,11 +46,11 @@ namespace EventXyz.Mvp {
         }
 
         public void OnDeleteItem(int itemId) {
-            throw new NotImplementedException();
+            repository.DeleteItem(itemId);
         }
 
         public void OnEditItem(int itemId) {
-            navigationController.NavigateToArtistEditor(new Artist(1, "Alica", "Genre"));
+            navigationController.NavigateToArtistEditor(repository.GetItem(itemId));
         }
     }
 }
