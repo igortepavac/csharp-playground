@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EventXyz.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,6 +12,10 @@ using System.Windows.Forms;
 namespace EventXyz.Forms {
     public partial class FormEventEditor : Form {
         public FormEventEditor() {
+            InitializeComponent();
+        }
+
+        public FormEventEditor(MusicEvent musicEvent) {
             InitializeComponent();
         }
     }
