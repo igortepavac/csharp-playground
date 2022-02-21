@@ -12,6 +12,8 @@ namespace EventXyz.Models {
             Genre = genre;
         }
 
+        public Artist(string name, string genre) : this(0, name, genre) { }
+
         public int Id { get; set; }
         public string Name { get; set; }
         public string Genre { get; set; }

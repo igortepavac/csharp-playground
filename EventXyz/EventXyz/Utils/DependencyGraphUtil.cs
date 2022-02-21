@@ -17,5 +17,9 @@ namespace EventXyz.Utils {
         public static IEntityDetailsPresenter GetEventDetailsPresenter(IEntityDetailsView view) {
             return new EventsDetailsPresenter(view, EventsRepository.Instance, new EventDetailsNavigationController());
         }
+
+        public static IArtistEditorPresenter GetArtistEditorPresenter(IArtistEditorView view) {
+            return new ArtistEditorPresenter(view, ArtistsRepository.Instance);
+        }
     }
 }

@@ -28,7 +28,7 @@ namespace EventXyz.Forms {
             this.tbId = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbGenre = new System.Windows.Forms.TextBox();
             this.lblGenre = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -80,17 +80,17 @@ namespace EventXyz.Forms {
             this.tbName.TabIndex = 3;
             this.tbName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox1
+            // tbGenre
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(101, 283);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "Unesi žanr izvođača ovdje";
-            this.textBox1.Size = new System.Drawing.Size(303, 29);
-            this.textBox1.TabIndex = 5;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbGenre.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbGenre.BackColor = System.Drawing.SystemColors.Window;
+            this.tbGenre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbGenre.Location = new System.Drawing.Point(101, 283);
+            this.tbGenre.Name = "tbGenre";
+            this.tbGenre.PlaceholderText = "Unesi žanr izvođača ovdje";
+            this.tbGenre.Size = new System.Drawing.Size(303, 29);
+            this.tbGenre.TabIndex = 5;
+            this.tbGenre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblGenre
             // 
@@ -120,7 +120,7 @@ namespace EventXyz.Forms {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(524, 451);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbGenre);
             this.Controls.Add(this.lblGenre);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.lblName);
@@ -139,7 +139,7 @@ namespace EventXyz.Forms {
         private System.Windows.Forms.TextBox tbId;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.TextBox tbName;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbGenre;
         private System.Windows.Forms.Label lblGenre;
         private System.Windows.Forms.Button btnSave;
     }
