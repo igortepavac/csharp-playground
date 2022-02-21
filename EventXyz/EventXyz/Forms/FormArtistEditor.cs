@@ -18,7 +18,6 @@ namespace EventXyz.Forms {
 
         public FormArtistEditor(Artist artist) {
             InitializeComponent();
-            label1.Text = artist != null ? artist.Name : "Nema";
         }
     }
 }
