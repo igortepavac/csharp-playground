@@ -12,10 +12,12 @@ namespace EventXyz.Mvp {
 
         private static readonly List<HeaderItem> headers = new List<HeaderItem> {
                 new HeaderItem("ID", 100),
-                new HeaderItem("Opis", 300)
+                new HeaderItem("Izvođač", 200),
+                new HeaderItem("Kapacitet", 70),
+                new HeaderItem("Opis", 300),
         };
 
-        private static readonly RowItemMapper mapper = (item) => new RowItem(item.Id, new List<string>() { item.Description });
+        private static readonly RowItemMapper mapper = (item) => new RowItem(item.Id, new List<string>() { item.Artist.Name, item.Capacity.ToString(), item.Description });
 
         private readonly IEntityDetailsView view;
         private readonly EventsRepository repository;

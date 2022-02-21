@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 namespace EventXyz.Mvp {
     public class EventEditorPresenter : IEventEditorPresenter {
 
+        private delegate ArtistPickerItem ArtistMapper(Artist artist);
+
+        private static readonly ArtistMapper artistMapper = artist => new ArtistPickerItem(artist.Id, artist.Name);
+
         private readonly IEventEditorView view;
         private readonly EventsRepository eventsRepository;
         private readonly ArtistsRepository artistsRepository;
@@ -31,7 +35,7 @@ namespace EventXyz.Mvp {
 
         private async void FillArtistPicker() {
             var artists = (await artistsRepository.GetItemsAsync())
-                .Select(a => new ArtistPickerItem(a.Id, a.Name))
+                .Select(a => artistMapper.Invoke(a))
                 .ToList();
             view.FillArtistPicker(artists);
         }
@@ -39,8 +43,8 @@ namespace EventXyz.Mvp {
         private void FillData(MusicEvent musicEvent) {
             view.ShowId(musicEvent.Id);
             view.ShowDescription(musicEvent.Description);
-            view.ShowCapacity(1);
-            view.ShowSelectedArtist(new ArtistPickerItem(1, "The One"));
+            view.ShowCapacity(musicEvent.Capacity);
+            view.ShowSelectedArtist(artistMapper.Invoke(musicEvent.Artist));
         }
 
         public async void OnSave(string description, string capacity, int artistId) {
@@ -48,7 +52,8 @@ namespace EventXyz.Mvp {
                 view.ShowError("Potrebno je popuniti sva polja!");
                 return;
             }
-            int capacityInt = 0;
+
+            int capacityInt;
             try {
                 capacityInt = int.Parse(capacity);
             } catch (Exception) {
@@ -57,11 +62,14 @@ namespace EventXyz.Mvp {
                 return;
             }
 
+            var selectedArtist = await artistsRepository.GetItemAsync(artistId);
+
             if (eventId != -1) {
-                await eventsRepository.UpdateItemAsync(new MusicEvent(eventId, description));
+                await eventsRepository.UpdateItemAsync(new MusicEvent(eventId, description, capacityInt, selectedArtist));
             } else {
-                await eventsRepository.AddItemAsync(new MusicEvent(0, description));
+                await eventsRepository.AddItemAsync(new MusicEvent(0, description, capacityInt, selectedArtist));
             }
+            
             view.CloseForm();
         }
     }

@@ -27,8 +27,8 @@ namespace EventXyz.Repositories {
         }
 
         private List<MusicEvent> events = new List<MusicEvent>() {
-            new MusicEvent(1, "Opis 1"),
-            new MusicEvent(2, "opis2")
+            new MusicEvent(1, "Opis 1", 1000, new Artist(1, "Valentino", "Pop")),
+            new MusicEvent(2, "Opis 2", 7000, new Artist(2, "Bonno", "Rock"))
         };
 
         public override async Task<List<MusicEvent>> GetItemsAsync() {

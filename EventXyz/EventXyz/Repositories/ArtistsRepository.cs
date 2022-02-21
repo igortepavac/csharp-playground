@@ -27,8 +27,8 @@ namespace EventXyz.Repositories {
         }
 
         private List<Artist> artists = new List<Artist>() {
-            new Artist(1, "Gnork", "Pop"),
-            new Artist(2, "Valentino", "Rock")
+            new Artist(1, "Valentino", "Pop"),
+            new Artist(2, "Bonno", "Rock")
         };
 
         public override async Task<List<Artist>> GetItemsAsync() {
