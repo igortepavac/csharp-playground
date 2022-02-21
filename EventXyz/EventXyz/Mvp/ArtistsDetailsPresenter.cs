@@ -18,6 +18,7 @@ namespace EventXyz.Mvp {
             this.view = view;
             this.repository = repository;
             this.navigationController = navigationController;
+            repository.DataChange += () => ShowItems();
         }
 
         public void Initialize() {
