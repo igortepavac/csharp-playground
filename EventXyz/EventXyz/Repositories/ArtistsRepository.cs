@@ -31,23 +31,23 @@ namespace EventXyz.Repositories {
             new Artist(2, "Valentino", "Rock")
         };
 
-        public override List<Artist> GetItems() {
+        public override async Task<List<Artist>> GetItemsAsync() {
             return artists;
         }
 
-        public override Artist GetItem(int id) {
+        public override async Task<Artist> GetItemAsync(int id) {
             return artists.Find(artist => artist.Id == id);
         }
 
-        protected override void AddItemInternal(Artist item) {
+        protected override async Task AddItemInternalAsync(Artist item) {
             artists.Add(item);
         }
 
-        protected override void UpdateItemInternal(Artist item) {
+        protected override async Task UpdateItemInternalAsync(Artist item) {
             artists = artists.Select(a => a.Id == item.Id ? item : a).ToList();
         }
 
-        protected override void DeleteItemInternal(int id) {
+        protected override async Task DeleteItemInternalAsync(int id) {
             artists = artists.FindAll(artist => !(artist.Id == id));
         }
     }

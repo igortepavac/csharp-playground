@@ -36,15 +36,15 @@ namespace EventXyz.Mvp {
             view.ShowHeaders(GetHeaders());
         }
 
-        private void ShowItems() {
-            var rows = repository.GetItems()
+        private async void ShowItems() {
+            var rows = (await repository.GetItemsAsync())
                 .Select(item => mapper.Invoke(item))
                 .ToList();
             view.ShowRows(rows);
         }
 
-        public void OnDeleteItem(int itemId) {
-            repository.DeleteItem(itemId);
+        public async void OnDeleteItem(int itemId) {
+            await repository.DeleteItemAsync(itemId);
         }
     }
 }

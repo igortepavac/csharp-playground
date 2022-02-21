@@ -31,23 +31,23 @@ namespace EventXyz.Repositories {
             new MusicEvent(2, "opis2")
         };
 
-        public override List<MusicEvent> GetItems() {
+        public override async Task<List<MusicEvent>> GetItemsAsync() {
             return events;
         }
 
-        public override MusicEvent GetItem(int id) {
+        public override async Task<MusicEvent> GetItemAsync(int id) {
             return events.Find(e => e.Id == id);
         }
 
-        protected override void AddItemInternal(MusicEvent item) {
+        protected override async Task AddItemInternalAsync(MusicEvent item) {
             events.Add(item);
         }
 
-        protected override void UpdateItemInternal(MusicEvent item) {
+        protected override async Task UpdateItemInternalAsync(MusicEvent item) {
             events = events.Select(e => e.Id == item.Id ? item : e).ToList();
         }
 
-        protected override void DeleteItemInternal(int id) {
+        protected override async Task DeleteItemInternalAsync(int id) {
             events = events.FindAll(e => !(e.Id == id));
         }
     }

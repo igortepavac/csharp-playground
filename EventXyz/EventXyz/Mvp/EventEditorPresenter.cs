@@ -29,8 +29,11 @@ namespace EventXyz.Mvp {
             }
         }
 
-        private void FillArtistPicker() {
-            view.FillArtistPicker(artistsRepository.GetItems().Select(a => new ArtistPickerItem(a.Id, a.Name)).ToList());
+        private async void FillArtistPicker() {
+            var artists = (await artistsRepository.GetItemsAsync())
+                .Select(a => new ArtistPickerItem(a.Id, a.Name))
+                .ToList();
+            view.FillArtistPicker(artists);
         }
 
         private void FillData(MusicEvent musicEvent) {
@@ -40,7 +43,7 @@ namespace EventXyz.Mvp {
             view.ShowSelectedArtist(new ArtistPickerItem(1, "The One"));
         }
 
-        public void OnSave(string description, string capacity, int artistId) {
+        public async void OnSave(string description, string capacity, int artistId) {
             if (String.IsNullOrEmpty(description) || String.IsNullOrEmpty(capacity) || artistId == -1) {
                 view.ShowError("Potrebno je popuniti sva polja!");
                 return;
@@ -55,9 +58,9 @@ namespace EventXyz.Mvp {
             }
 
             if (eventId != -1) {
-                eventsRepository.UpdateItem(new MusicEvent(eventId, description));
+                await eventsRepository.UpdateItemAsync(new MusicEvent(eventId, description));
             } else {
-                eventsRepository.AddItem(new MusicEvent(0, description));
+                await eventsRepository.AddItemAsync(new MusicEvent(0, description));
             }
             view.CloseForm();
         }

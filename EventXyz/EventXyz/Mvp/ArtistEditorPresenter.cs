@@ -32,14 +32,14 @@ namespace EventXyz.Mvp {
             view.ShowGenre(artist.Genre);
         }
 
-        public void OnSave(string name, string genre) {
+        public async void OnSave(string name, string genre) {
             if (String.IsNullOrEmpty(name) || String.IsNullOrEmpty(genre)) {
                 view.ShowError("Potrebno je popuniti sva polja!");
             } else {
                 if (artistId != -1) {
-                    repository.UpdateItem(new Artist(artistId, name, genre));
+                    await repository.UpdateItemAsync(new Artist(artistId, name, genre));
                 } else {
-                    repository.AddItem(new Artist(name, genre));
+                    await repository .AddItemAsync(new Artist(name, genre));
                 }
                 view.CloseForm();
             }

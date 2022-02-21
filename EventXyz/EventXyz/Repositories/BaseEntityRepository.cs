@@ -10,29 +10,31 @@ namespace EventXyz.Repositories {
 
     public abstract class BaseEntityRepository<T> {
 
+        private delegate Task AsyncAction();
+
         public event DataChangeObserver DataChange;
 
-        public abstract List<T> GetItems();
-        public abstract T GetItem(int id);
+        public abstract Task<List<T>> GetItemsAsync();
+        public abstract Task<T> GetItemAsync(int id);
 
-        protected abstract void AddItemInternal(T item);
-        protected abstract void UpdateItemInternal(T item);
-        protected abstract void DeleteItemInternal(int id);
+        protected abstract Task AddItemInternalAsync(T item);
+        protected abstract Task UpdateItemInternalAsync(T item);
+        protected abstract Task DeleteItemInternalAsync(int id);
 
-        public void AddItem(T item) {
-            PerformAndNotify(() => AddItemInternal(item));
+        public async Task AddItemAsync(T item) {
+            await PerformAndNotifyAsync(() => AddItemInternalAsync(item));
         }
 
-        public void UpdateItem(T item) {
-            PerformAndNotify(() => UpdateItemInternal(item));
+        public async Task UpdateItemAsync(T item) {
+            await PerformAndNotifyAsync(() => UpdateItemInternalAsync(item));
         }
 
-        public void DeleteItem(int id) {
-            PerformAndNotify(() => DeleteItemInternal(id));
+        public async Task DeleteItemAsync(int id) {
+            await PerformAndNotifyAsync(() => DeleteItemInternalAsync(id));
         }
 
-        private void PerformAndNotify(Action action) {
-            action.Invoke();
+        private async Task PerformAndNotifyAsync(AsyncAction action) {
+            await action.Invoke();
             DataChange?.Invoke();
         }
     }

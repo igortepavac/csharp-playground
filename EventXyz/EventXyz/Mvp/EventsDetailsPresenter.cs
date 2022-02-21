@@ -34,8 +34,8 @@ namespace EventXyz.Mvp {
             navigationController.NavigateToEventEditor();
         }
 
-        public override void OnEditItem(int itemId) {
-            navigationController.NavigateToEventEditor(repository.GetItem(itemId));
+        public override async void OnEditItem(int itemId) {
+            navigationController.NavigateToEventEditor((await repository.GetItemAsync(itemId)));
         }
     }
 }
