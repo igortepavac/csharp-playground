@@ -25,15 +25,15 @@ namespace EventXyz.Mvp {
             this.artistsRepository = artistsRepository;
         }
 
-        public void Initialize(MusicEvent musicEvent) {
-            FillArtistPicker();
+        public async void Initialize(MusicEvent musicEvent) {
+            await FillArtistPicker();
             if (musicEvent != null) {
                 eventId = musicEvent.Id;
                 FillData(musicEvent);
             }
         }
 
-        private async void FillArtistPicker() {
+        private async Task FillArtistPicker() {
             var artists = (await artistsRepository.GetItemsAsync())
                 .Select(a => artistMapper.Invoke(a))
                 .ToList();
@@ -62,12 +62,10 @@ namespace EventXyz.Mvp {
                 return;
             }
 
-            var selectedArtist = await artistsRepository.GetItemAsync(artistId);
-
             if (eventId != -1) {
-                await eventsRepository.UpdateItemAsync(new MusicEvent(eventId, description, capacityInt, selectedArtist));
+                await eventsRepository.UpdateItemAsync(new MusicEvent { Id = eventId, Description = description, Capacity = capacityInt, ArtistId = artistId });
             } else {
-                await eventsRepository.AddItemAsync(new MusicEvent(0, description, capacityInt, selectedArtist));
+                await eventsRepository.AddItemAsync(new MusicEvent { Description = description, Capacity = capacityInt, ArtistId = artistId });
             }
             
             view.CloseForm();

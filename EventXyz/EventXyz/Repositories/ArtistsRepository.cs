@@ -1,4 +1,6 @@
-﻿using EventXyz.Models;
+﻿using EventXyz.Data;
+using EventXyz.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,29 +28,35 @@ namespace EventXyz.Repositories {
             }
         }
 
-        private List<Artist> artists = new List<Artist>() {
-            new Artist(1, "Valentino", "Pop"),
-            new Artist(2, "Bonno", "Rock")
-        };
-
         public override async Task<List<Artist>> GetItemsAsync() {
-            return artists;
+            using var context = new EventsDbContext();
+            return await context.Artists.ToListAsync();
         }
 
         public override async Task<Artist> GetItemAsync(int id) {
-            return artists.Find(artist => artist.Id == id);
+            using var context = new EventsDbContext();
+            return await context.Artists.Where(artist => artist.Id == id).FirstAsync();
         }
 
         protected override async Task AddItemInternalAsync(Artist item) {
-            artists.Add(item);
+            using var context = new EventsDbContext();
+            await context.Artists.AddAsync(item);
+            await context.SaveChangesAsync();
         }
 
         protected override async Task UpdateItemInternalAsync(Artist item) {
-            artists = artists.Select(a => a.Id == item.Id ? item : a).ToList();
+            using var context = new EventsDbContext();
+            var currentItem = await context.Artists.Where(artist => artist.Id == item.Id).FirstAsync();
+            context.Entry(currentItem).CurrentValues.SetValues(item);
+            await context.SaveChangesAsync();
         }
 
         protected override async Task DeleteItemInternalAsync(int id) {
-            artists = artists.FindAll(artist => !(artist.Id == id));
+            using var context = new EventsDbContext();
+            var item = new Artist() { Id = id };
+            context.Artists.Attach(item);
+            context.Artists.Remove(item);
+            await context.SaveChangesAsync();
         }
     }
 }

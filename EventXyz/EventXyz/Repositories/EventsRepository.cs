@@ -1,4 +1,6 @@
-﻿using EventXyz.Models;
+﻿using EventXyz.Data;
+using EventXyz.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,29 +28,35 @@ namespace EventXyz.Repositories {
             }
         }
 
-        private List<MusicEvent> events = new List<MusicEvent>() {
-            new MusicEvent(1, "Opis 1", 1000, new Artist(1, "Valentino", "Pop")),
-            new MusicEvent(2, "Opis 2", 7000, new Artist(2, "Bonno", "Rock"))
-        };
-
         public override async Task<List<MusicEvent>> GetItemsAsync() {
-            return events;
+            using var context = new EventsDbContext();
+            return await context.MusicEvents.Include(e => e.Artist).ToListAsync();
         }
 
         public override async Task<MusicEvent> GetItemAsync(int id) {
-            return events.Find(e => e.Id == id);
+            using var context = new EventsDbContext();
+            return await context.MusicEvents.Where(e => e.Id == id).Include(e => e.Artist).FirstAsync();
         }
 
         protected override async Task AddItemInternalAsync(MusicEvent item) {
-            events.Add(item);
+            using var context = new EventsDbContext();
+            await context.MusicEvents.AddAsync(item);
+            await context.SaveChangesAsync();
         }
 
         protected override async Task UpdateItemInternalAsync(MusicEvent item) {
-            events = events.Select(e => e.Id == item.Id ? item : e).ToList();
+            using var context = new EventsDbContext();
+            var currentItem = await context.MusicEvents.Where(e => e.Id == item.Id).FirstAsync();
+            context.Entry(currentItem).CurrentValues.SetValues(item);
+            await context.SaveChangesAsync();
         }
 
         protected override async Task DeleteItemInternalAsync(int id) {
-            events = events.FindAll(e => !(e.Id == id));
+            using var context = new EventsDbContext();
+            var item = new MusicEvent() { Id = id };
+            context.MusicEvents.Attach(item);
+            context.MusicEvents.Remove(item);
+            await context.SaveChangesAsync();
         }
     }
 }

@@ -37,9 +37,9 @@ namespace EventXyz.Mvp {
                 view.ShowError("Potrebno je popuniti sva polja!");
             } else {
                 if (artistId != -1) {
-                    await repository.UpdateItemAsync(new Artist(artistId, name, genre));
+                    await repository.UpdateItemAsync(new Artist { Id = artistId, Name = name, Genre = genre });
                 } else {
-                    await repository .AddItemAsync(new Artist(name, genre));
+                    await repository .AddItemAsync(new Artist { Name = name, Genre = genre });
                 }
                 view.CloseForm();
             }
