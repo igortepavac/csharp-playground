@@ -64,6 +64,7 @@ namespace EventXyz.Forms {
         }
 
         public void ShowHeaders(List<HeaderItem> headers) {
+            lvItems.Columns.Clear();
             headers.ForEach((header) => {
                 lvItems.Columns.Add(new ColumnHeader {
                     Text = header.Text,
@@ -74,6 +75,7 @@ namespace EventXyz.Forms {
         }
 
         public void ShowRows(List<RowItem> rows) {
+            lvItems.Items.Clear();
             rows.ForEach((row) => {
                 var item = new ListViewItem {
                     Text = row.Id.ToString()
