@@ -21,5 +21,9 @@ namespace EventXyz.Utils {
         public static IArtistEditorPresenter GetArtistEditorPresenter(IArtistEditorView view) {
             return new ArtistEditorPresenter(view, ArtistsRepository.Instance);
         }
+
+        public static IEventEditorPresenter GetEventEditorPresenter(IEventEditorView view) {
+            return new EventEditorPresenter(view, EventsRepository.Instance, ArtistsRepository.Instance);
+        }
     }
 }
