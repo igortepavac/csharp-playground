@@ -18,5 +18,17 @@ namespace EventXyz.Models {
         public override string ToString() {
             return Name;
         }
+
+        public override bool Equals(object obj) {
+            if ((obj == null) || !this.GetType().Equals(obj.GetType())) {
+                return false;
+            } else {
+                return ((ArtistPickerItem)obj).Id == this.Id;
+            }
+        }
+
+        public override int GetHashCode() {
+            return Id;
+        }
     }
 }
