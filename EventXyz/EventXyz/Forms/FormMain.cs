@@ -1,4 +1,4 @@
-﻿using EventXyz.Controllers;
+﻿using EventXyz.NavigationControllers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

@@ -1,4 +1,4 @@
-﻿using EventXyz.Controllers;
+﻿using EventXyz.NavigationControllers;
 using EventXyz.Mvp;
 using EventXyz.Repositories;
 using System;

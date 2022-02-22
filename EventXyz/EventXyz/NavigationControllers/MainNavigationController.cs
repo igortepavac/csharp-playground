@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EventXyz.Controllers {
+namespace EventXyz.NavigationControllers {
 
     public static class Extensions {
 
