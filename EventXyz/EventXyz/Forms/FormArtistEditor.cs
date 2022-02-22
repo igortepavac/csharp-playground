@@ -27,6 +27,7 @@ namespace EventXyz.Forms {
         }
 
         protected override void OnLoad(EventArgs e) {
+            ActiveControl = lblName;
             btnSave.Click += (_, _) => presenter.OnSave(tbName.Text, tbGenre.Text);
         }
 

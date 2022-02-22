@@ -27,6 +27,7 @@ namespace EventXyz.Forms {
         }
 
         protected override void OnLoad(EventArgs e) {
+            ActiveControl = rtbDescription;
             btnSave.Click += (_, _) => presenter.OnSave(rtbDescription.Text, tbCapacity.Text, GetSelectedArtistId());
         }
 

@@ -42,7 +42,7 @@ namespace EventXyz.Forms {
             this.btnSave.Location = new System.Drawing.Point(111, 569);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(303, 35);
-            this.btnSave.TabIndex = 13;
+            this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Spremi";
             this.btnSave.UseVisualStyleBackColor = true;
             // 
@@ -55,7 +55,7 @@ namespace EventXyz.Forms {
             this.tbCapacity.Name = "tbCapacity";
             this.tbCapacity.PlaceholderText = "Unesi kapacitet događaja ovdje";
             this.tbCapacity.Size = new System.Drawing.Size(303, 29);
-            this.tbCapacity.TabIndex = 12;
+            this.tbCapacity.TabIndex = 2;
             this.tbCapacity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblCapacity
@@ -109,7 +109,7 @@ namespace EventXyz.Forms {
             this.rtbDescription.Location = new System.Drawing.Point(111, 171);
             this.rtbDescription.Name = "rtbDescription";
             this.rtbDescription.Size = new System.Drawing.Size(303, 96);
-            this.rtbDescription.TabIndex = 14;
+            this.rtbDescription.TabIndex = 1;
             this.rtbDescription.Text = "";
             // 
             // lblArtist
@@ -131,7 +131,7 @@ namespace EventXyz.Forms {
             this.cbArtists.Location = new System.Drawing.Point(111, 447);
             this.cbArtists.Name = "cbArtists";
             this.cbArtists.Size = new System.Drawing.Size(303, 29);
-            this.cbArtists.TabIndex = 16;
+            this.cbArtists.TabIndex = 3;
             // 
             // FormEventEditor
             // 
