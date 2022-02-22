@@ -17,9 +17,11 @@ namespace EventXyz.Forms {
         public delegate IEntityDetailsPresenter PresenterFactory(IEntityDetailsView view);
 
         private readonly IEntityDetailsPresenter presenter;
+        private readonly bool importAvailable;
 
-        public FormEntityDetails(PresenterFactory presenterFactory) {
+        public FormEntityDetails(PresenterFactory presenterFactory, bool importAvailable = false) {
             this.presenter = presenterFactory.Invoke(this);
+            this.importAvailable = importAvailable;
             InitializeComponent();
         }
 
@@ -28,12 +30,20 @@ namespace EventXyz.Forms {
         }
 
         protected override void OnLoad(EventArgs e) {
-            InitializeButtons();
+            InitializeImportButtons();
+            InitializeCrudButtons();
             InitializeListView();
             presenter.Initialize();
         }
 
-        private void InitializeButtons() {
+        private void InitializeImportButtons() {
+            btnImport.Visible = importAvailable;
+            btnExport.Visible = importAvailable;
+            btnImport.Click += (_, _) => presenter.OnImport();
+            btnExport.Click += (_, _) => presenter.OnExport();
+        }
+
+        private void InitializeCrudButtons() {
             btnAddNewItem.Click += (_, _) => presenter.OnAddNewItem();
             btnDeleteItem.Click += (_, _) => OnDeleteItem();
             btnEditItem.Click += (_, _) => presenter.OnEditItem(GetSelectedItemId());

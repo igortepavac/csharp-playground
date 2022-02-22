@@ -53,7 +53,7 @@ namespace EventXyz {
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(190, 450);
+            this.panelMenu.Size = new System.Drawing.Size(190, 461);
             this.panelMenu.TabIndex = 0;
             // 
             // lblCourseName
@@ -61,7 +61,7 @@ namespace EventXyz {
             this.lblCourseName.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblCourseName.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblCourseName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.lblCourseName.Location = new System.Drawing.Point(0, 370);
+            this.lblCourseName.Location = new System.Drawing.Point(0, 381);
             this.lblCourseName.Name = "lblCourseName";
             this.lblCourseName.Padding = new System.Windows.Forms.Padding(0, 0, 0, 8);
             this.lblCourseName.Size = new System.Drawing.Size(190, 40);
@@ -74,7 +74,7 @@ namespace EventXyz {
             this.lblAuthorName.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblAuthorName.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblAuthorName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.lblAuthorName.Location = new System.Drawing.Point(0, 410);
+            this.lblAuthorName.Location = new System.Drawing.Point(0, 421);
             this.lblAuthorName.Name = "lblAuthorName";
             this.lblAuthorName.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
             this.lblAuthorName.Size = new System.Drawing.Size(190, 40);
@@ -148,7 +148,7 @@ namespace EventXyz {
             this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitle.Location = new System.Drawing.Point(190, 0);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(610, 60);
+            this.panelTitle.Size = new System.Drawing.Size(694, 60);
             this.panelTitle.TabIndex = 1;
             // 
             // lblTitle
@@ -157,7 +157,7 @@ namespace EventXyz {
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.lblTitle.Location = new System.Drawing.Point(232, 9);
+            this.lblTitle.Location = new System.Drawing.Point(274, 9);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(126, 37);
             this.lblTitle.TabIndex = 0;
@@ -169,14 +169,14 @@ namespace EventXyz {
             this.panelFormContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFormContainer.Location = new System.Drawing.Point(190, 60);
             this.panelFormContainer.Name = "panelFormContainer";
-            this.panelFormContainer.Size = new System.Drawing.Size(610, 390);
+            this.panelFormContainer.Size = new System.Drawing.Size(694, 401);
             this.panelFormContainer.TabIndex = 2;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(884, 461);
             this.Controls.Add(this.panelFormContainer);
             this.Controls.Add(this.panelTitle);
             this.Controls.Add(this.panelMenu);

@@ -25,6 +25,8 @@ namespace EventXyz.Forms {
         /// </summary>
         private void InitializeComponent() {
             this.panelControls = new System.Windows.Forms.Panel();
+            this.btnExport = new System.Windows.Forms.Button();
+            this.btnImport = new System.Windows.Forms.Button();
             this.btnDeleteItem = new System.Windows.Forms.Button();
             this.btnEditItem = new System.Windows.Forms.Button();
             this.btnAddNewItem = new System.Windows.Forms.Button();
@@ -35,14 +37,42 @@ namespace EventXyz.Forms {
             // panelControls
             // 
             this.panelControls.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(51)))), ((int)(((byte)(54)))));
+            this.panelControls.Controls.Add(this.btnExport);
+            this.panelControls.Controls.Add(this.btnImport);
             this.panelControls.Controls.Add(this.btnDeleteItem);
             this.panelControls.Controls.Add(this.btnEditItem);
             this.panelControls.Controls.Add(this.btnAddNewItem);
             this.panelControls.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControls.Location = new System.Drawing.Point(0, 372);
+            this.panelControls.Location = new System.Drawing.Point(0, 383);
             this.panelControls.Name = "panelControls";
-            this.panelControls.Size = new System.Drawing.Size(800, 78);
+            this.panelControls.Size = new System.Drawing.Size(784, 78);
             this.panelControls.TabIndex = 0;
+            // 
+            // btnExport
+            // 
+            this.btnExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(29)))), ((int)(((byte)(31)))));
+            this.btnExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(55)))), ((int)(((byte)(101)))));
+            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.btnExport.Location = new System.Drawing.Point(576, 26);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(90, 40);
+            this.btnExport.TabIndex = 4;
+            this.btnExport.Text = "Export";
+            this.btnExport.UseVisualStyleBackColor = false;
+            // 
+            // btnImport
+            // 
+            this.btnImport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(29)))), ((int)(((byte)(31)))));
+            this.btnImport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(55)))), ((int)(((byte)(101)))));
+            this.btnImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.btnImport.Location = new System.Drawing.Point(480, 25);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(90, 40);
+            this.btnImport.TabIndex = 3;
+            this.btnImport.Text = "Import";
+            this.btnImport.UseVisualStyleBackColor = false;
             // 
             // btnDeleteItem
             // 
@@ -92,19 +122,19 @@ namespace EventXyz.Forms {
             this.lvItems.Location = new System.Drawing.Point(0, 0);
             this.lvItems.MultiSelect = false;
             this.lvItems.Name = "lvItems";
-            this.lvItems.Size = new System.Drawing.Size(800, 372);
+            this.lvItems.Size = new System.Drawing.Size(784, 383);
             this.lvItems.TabIndex = 1;
             this.lvItems.UseCompatibleStateImageBehavior = false;
             this.lvItems.View = System.Windows.Forms.View.Details;
             // 
-            // FormArtists
+            // FormEntityDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(784, 461);
             this.Controls.Add(this.lvItems);
             this.Controls.Add(this.panelControls);
-            this.Name = "FormArtists";
+            this.Name = "FormEntityDetails";
             this.Text = "FormArtists";
             this.panelControls.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -118,5 +148,7 @@ namespace EventXyz.Forms {
         private System.Windows.Forms.Button btnAddNewItem;
         private System.Windows.Forms.ListView lvItems;
         private System.Windows.Forms.Button btnDeleteItem;
+        private System.Windows.Forms.Button btnImport;
+        private System.Windows.Forms.Button btnExport;
     }
 }

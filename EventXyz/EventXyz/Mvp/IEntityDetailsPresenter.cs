@@ -15,5 +15,8 @@ namespace EventXyz.Mvp {
 
         public void OnDeleteItem(int itemId);
 
+        public virtual void OnImport() { }
+        public virtual void OnExport() { }
+
     }
 }
