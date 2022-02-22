@@ -28,7 +28,19 @@ namespace EventXyz.Forms {
 
         protected override void OnLoad(EventArgs e) {
             ActiveControl = rtbDescription;
-            btnSave.Click += (_, _) => presenter.OnSave(rtbDescription.Text, tbCapacity.Text, GetSelectedArtistId());
+            tbCapacity.KeyDown += OnKeyDown;
+            cbArtists.KeyDown += OnKeyDown;
+            btnSave.Click += (_, _) => OnSave();
+        }
+
+        private void OnKeyDown(object sender, KeyEventArgs e) {
+            if (e.KeyCode == Keys.Enter) {
+                OnSave();
+            }
+        }
+
+        private void OnSave() {
+            presenter.OnSave(rtbDescription.Text, tbCapacity.Text, GetSelectedArtistId());
         }
 
         private int GetSelectedArtistId() {
