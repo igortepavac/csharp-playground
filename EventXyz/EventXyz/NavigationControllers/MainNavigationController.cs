@@ -16,7 +16,7 @@ namespace EventXyz.NavigationControllers {
             return item switch {
                 MainNavigationController.NavigationItem.Artists => new FormEntityDetails((view) => { return DependencyGraphUtil.GetArtistDetailsPresenter(view); }),
                 MainNavigationController.NavigationItem.Events => new FormEntityDetails((view) => { return DependencyGraphUtil.GetEventDetailsPresenter(view); }),
-                _ => throw new Exception(String.Format("Unhandled navigation item - {0}", item)),
+                _ => throw new NavigationItemNotFoundException(String.Format("Unhandled navigation item - {0}", item)),
             };
         }
 
@@ -24,9 +24,16 @@ namespace EventXyz.NavigationControllers {
             return item switch {
                 MainNavigationController.NavigationItem.Artists => "Izvođači",
                 MainNavigationController.NavigationItem.Events => "Događaji",
-                _ => throw new Exception(String.Format("Unhandled navigation item - {0}", item)),
+                _ => throw new NavigationItemNotFoundException(String.Format("Unhandled navigation item - {0}", item)),
             };
         }
+    }
+
+    public class NavigationItemNotFoundException : Exception {
+
+        public NavigationItemNotFoundException() { }
+
+        public NavigationItemNotFoundException(string message) : base(message) { }
     }
 
     public class MainNavigationController {
@@ -59,11 +66,17 @@ namespace EventXyz.NavigationControllers {
             if (currentForm != null) {
                 currentForm.Close();
             }
-            
-            UpdateNavigationControls(item);
-            labelTitle.Text = item.GetTitle();
 
-            var itemForm = ConfigureFormStyle(item.GetForm());
+            Form itemForm;
+            try {
+                labelTitle.Text = item.GetTitle();
+                itemForm = ConfigureFormStyle(item.GetForm());
+            } catch(NavigationItemNotFoundException e) {
+                System.Diagnostics.Trace.WriteLine(e.Message);
+                return;
+            }
+
+            UpdateNavigationControls(item);
             currentForm = itemForm;
             panelFormContainer.Controls.Add(itemForm);
             panelFormContainer.Tag = itemForm;
