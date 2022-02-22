@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EventXyz.Mvp {
+namespace EventXyz.Mvp.Events.Editor {
     public interface IEventEditorView {
 
         public void ShowId(int id);

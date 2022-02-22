@@ -1,5 +1,5 @@
 ﻿using EventXyz.Models;
-using EventXyz.Mvp;
+using EventXyz.Mvp.Artists.Editor;
 using EventXyz.Utils;
 using System;
 using System.Collections.Generic;

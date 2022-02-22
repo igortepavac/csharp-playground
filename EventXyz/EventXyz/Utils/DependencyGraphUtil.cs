@@ -1,5 +1,9 @@
 ﻿using EventXyz.NavigationControllers;
 using EventXyz.Mvp;
+using EventXyz.Mvp.Artists;
+using EventXyz.Mvp.Events;
+using EventXyz.Mvp.Artists.Editor;
+using EventXyz.Mvp.Events.Editor;
 using EventXyz.Repositories;
 using System;
 using System.Collections.Generic;

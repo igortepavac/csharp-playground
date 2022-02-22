@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EventXyz.Mvp {
+namespace EventXyz.Mvp.Events.Editor {
     public interface IEventEditorPresenter {
 
         public void Initialize(MusicEvent musicEvent);

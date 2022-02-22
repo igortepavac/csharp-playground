@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EventXyz.Mvp {
+namespace EventXyz.Mvp.Artists {
     public class ArtistsDetailsPresenter : BaseEntityDetailsPresenter<Artist>, IEntityDetailsPresenter {
         
         private static readonly List<HeaderItem> headers = new List<HeaderItem> {

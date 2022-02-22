@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EventXyz.Mvp {
+namespace EventXyz.Mvp.Events.Editor {
     public class EventEditorPresenter : IEventEditorPresenter {
 
         private delegate ArtistPickerItem ArtistMapper(Artist artist);

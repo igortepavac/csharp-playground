@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EventXyz.Mvp {
+namespace EventXyz.Mvp.Artists.Editor {
     public interface IArtistEditorView {
 
         public void ShowId(int id);
